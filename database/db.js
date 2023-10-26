@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const connectToDb = () => {
   mongoose
-    .connect(
-      "mongodb+srv://root:admin@cluster0.5kmpsit.mongodb.net/?retryWrites=true&w=majority",
+    .connect( process.env.MONGODB_URL,
+      
       {
         useNewUrlParser: true,
 
