@@ -1,4 +1,4 @@
-const Task = require("../models/Task");
+import Task from "../models/Task.js";
 
 const getAllTasks = async (req, res) => {
   try {
@@ -55,15 +55,13 @@ const updateOneTask = async (req, res) => {
 const deleteOneTask = async (req, res) => {
   try {
     await Task.deleteOne({ _id: req.params.id });
-    message = "TAREFA APAGADA COM SUCESSO";
-    type = "success";
     res.redirect("/");
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
 };
 
-module.exports = {
+export default {
   getAllTasks,
   createTask,
   getById,
